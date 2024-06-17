@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Storage</title>
+    <style>
+      /* Styling to increase font size */
+      #name, #localName {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Web Storage Example</h1>
+    <p>Demonstrating the difference between sessionStorage and localStorage.</p>
+    
+    <!-- Division to display name using sessionStorage -->
+    <div id="name"></div>
+    
+    <!-- Division to display name using localStorage -->
+    <div id="localName"></div>
+
+    <script>
+      // Check if Web Storage is available
+      if (typeof(Storage) !== "undefined") {
+        
+        // Use sessionStorage to store and retrieve data
+        sessionStorage.setItem('name', 'Nimish');
+        console.log(sessionStorage.name);
+
+        // Check if the name exists in sessionStorage and display it
+        if (sessionStorage.name) {
+          document.getElementById('name').innerHTML = sessionStorage.getItem('name');
+        } else {
+          document.getElementById('name').innerHTML = 'No name found in sessionStorage';
+        }
+
+        // Use localStorage to store and retrieve data
+        localStorage.setItem('name', 'Tiwari');
+        console.log(localStorage.name);
+
+        // Check if the name exists in localStorage and display it
+        if (localStorage.name) {
+          document.getElementById('localName').innerHTML = localStorage.getItem('name');
+        } else {
+          document.getElementById('localName').innerHTML = 'No name found in localStorage';
+        }
+
+      } else {
+        console.log('Web Storage Not Available');
+      }
+    </script>
+  </body>
+</html>
